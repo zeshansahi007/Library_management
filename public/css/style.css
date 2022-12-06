@@ -1,0 +1,55 @@
+.navbar-collapse{
+    justify-content: space-between;
+}
+.btn-block{
+    width: 100%;
+}
+.mr-auto{
+    margin: auto;
+}
+.auth-links{
+    display: none;
+}
+.title{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 2rem;
+}
+.fl-r{
+    float: right;
+}
+.btn{
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+.form-control{
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+th{
+    font-weight: 500;
+    border: 0 !important;
+    border-bottom: 1px solid #80808045 !important;
+    color:#097969;
+    font-weight: bold;
+}
+td{
+    font-weight: 400;
+    border: 0 !important;
+    border-bottom: 1px solid #80808045 !important;
+    color: #555555 !important;
+    
+}
+td > a.btn{
+    border-radius: 20px !important;
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+}
+.div{
+    background-color: #097969;
+    height: 200px;
+    width: 300px;
+    color: antiquewhite;
+}

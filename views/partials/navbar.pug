@@ -1,0 +1,19 @@
+div
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    a.navbar-brand(href='#') Library
+    button.navbar-toggler(type="button",data-bs-toggle="collapse",data-bs-target="#navbarNav",aria-controls="navbarNav",aria-expanded="false",aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse(id="navbarNav")
+        ul.navbar-nav
+            li.nav-item.auth-links
+                a.nav-link.active(aria-current="page",href="/books") All Books
+            li.nav-item.auth-links
+                a.nav-link.active(aria-current="page",href="/borrowed") Borrowed
+        ul.navbar-nav
+            li.nav-item
+                a.nav-link.active(aria-current="page",id="logout",href="/logout") Logout
+            li.nav-item
+                a.nav-link.active(aria-current="page",id="login",href="/") Login
+            li.nav-item
+                a.nav-link.active(aria-current="page",id="signup",href="/signup") Sign Up
