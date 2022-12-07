@@ -56,7 +56,7 @@ CREATE TABLE `borrow_details` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table  `all-users`
 --
 
 CREATE TABLE `users` (
