@@ -16,18 +16,61 @@ const books = (req,res) => {
     }
 }
 
-const addbooks = (req,res) => {
-
-        res.json({'success':true,'message':'Book is available'})
-    
+/* Add Book */
+const addBook = (req, res) => {
+    try {
+        var title = req.body.title
+        var stock = req.body.stock
+        var author = req.body.author
+        var publish = req.body.publish
+        var rent = req.body.rent
+        
+        db.query(`insert into books(book_name,stock,author_name,publish_date,day_rent) 
+        values('${title}',${stock},'${author}','${publish}','${rent}')`,(err,rows,fields) => {
+            if(err) res.json({'error':true,'message':`Their is error in database query!`})
+            else{
+                res.json({'success':true,'message':`Published Successfully!`})   
+            }  
+        })
+    }catch (err) {
+        res.json({'message': err,'error': true})
+    }
 }
 
-const deletebooks = (req,res) => {
-
-    res.json({'success':true,'message':'Book is available'})
-
+/* Update Book */
+const updateBook = (req, res) => {
+    try {
+        var id = req.body.id
+        var title = req.body.title
+        var stock = req.body.stock
+        var author = req.body.author
+        var rent = req.body.rent
+        
+        db.query(`update books set book_name='${title}',stock='${stock}',author_name='${author}',day_rent='${rent}'
+        where book_id=${id}`,(err,rows,fields) => {
+            if(err) res.json({'error':true,'message':`Their is error in database query!`})
+            else{
+                res.json({'success':true,'message':`Updated Successfully!`})   
+            }  
+        })
+    }catch (err) {
+        res.json({'message': err,'error': true})
+    }
 }
 
+const deleteBook = (req, res) => {
+    try {
+        var id = req.params.id
+        db.query(`delete from books where book_id='${id}'`,(err,rows,fields) => {
+            if(err) res.json({'error':true,'message':`Their is error in database query!`})
+            else{
+                res.json({'success':true,'message':`Deleted Successfully!`})   
+            }  
+        })
+    }catch (err) {
+        res.json({'message': err,'error': true})
+    }
+}
 
 const bookAvailable = (req, res) => {
     try {
@@ -60,11 +103,47 @@ const bookAvailable = (req, res) => {
     }
 }
 
+const borrow = (req, res) => {
+    try {
+        var book_id = req.body.book_id
+        var user_id = req.body.user_id
+        var borrow_date = req.body.borrow_date
+        var return_date = req.body.return_date
+        var total_bill = req.body.total_bill
+        db.query(`insert into borrow_details (borrow_date,return_date,total_bill,user_id,book_id) 
+        values('${borrow_date}','${return_date}','${total_bill}','${user_id}','${book_id}')`,(err,rows,fields) => {
+            if(err) res.json({'error':true,'message':`Their is error in database query!`})
+            else{
+                res.json({'success':true,'message':`Borrowed Successfully!`})   
+            }  
+        })
+    }
+    catch (err) {
+        res.json({'message': err,'error': true})
+    }
+}
+
+const returnBook = (req, res) => {
+    try {
+        var id = req.body.id
+        var userId = req.body.userId
+        var totalFine = req.body.totalFine
+        db.query(`update borrow_details set fine='${totalFine}', status='1' where detials_id=${id}`,(err,rows,fields) => {
+            if(err) res.json({'error':true,'message':`Their is error in database query!`})
+            else  res.json({'success':true,'message':`Returned Successfully!`})  
+        })
+    }catch (err) {
+        res.json({'message': err,'error': true})
+    }
+}
 
 
 module.exports = {
     books,
+    addBook,
+    updateBook,
+    deleteBook,
     bookAvailable,
-    addbooks,
-    deletebooks,
+    borrow,
+    returnBook
 }

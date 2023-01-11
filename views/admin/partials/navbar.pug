@@ -5,14 +5,12 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       span.navbar-toggler-icon
     .collapse.navbar-collapse(id="navbarNav")
         ul.navbar-nav
-            li.nav-item.auth-links
-                a.nav-link.active(aria-current="page",href="/books") All Books
-            li.nav-item.auth-links
-                a.nav-link.active(aria-current="page",href="/borrowed") Borrowed
+            li.nav-item
+                a.nav-link.active(aria-current="page",href="/admin/books") Books
+            li.nav-item
+                a.nav-link.active(aria-current="page",href="/admin/users") Users
         ul.navbar-nav
             li.nav-item
                 a.nav-link.active(aria-current="page",id="logout",href="/logout") Logout
             li.nav-item
-                a.nav-link.active(aria-current="page",id="login",href="/") Login
-            li.nav-item
-                a.nav-link.active(aria-current="page",id="signup",href="/signup") Sign Up
+                a.nav-link.active(aria-current="page",id="login",href="/login") Login

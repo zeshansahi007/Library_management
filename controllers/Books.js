@@ -12,24 +12,23 @@ const bookAvailable = (req,res) => {
     Books.bookAvailable(req,res)
 }
 
-const addbooks = (req,res) => {
-    res.render('addbooks')
-
+const borrow = (req,res) => {
+    Books.borrow(req,res)
 }
 
-
-
-const deletebooks = (req,res) => {
-    res.render('deletebooks')
-
+const returnBook = (req,res) => {
+    Books.returnBook(req,res)
 }
 
+const borrowedGet = (req,res) => {
+    res.render('borrowed')
+}
 
 module.exports = {
     bookGet,
     books,
     bookAvailable,
-    addbooks,
-    deletebooks,
-    
+    borrow,
+    returnBook,
+    borrowedGet
 }

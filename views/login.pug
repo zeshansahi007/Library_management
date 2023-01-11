@@ -1,0 +1,17 @@
+include partials/header.pug
+body 
+    include partials/navbar.pug
+    .container 
+        .row.mt-5
+            .col-lg-4.mr-auto
+                form(action="/login", method="post")
+                    .alert
+                    .form-group.mb-4
+                        h2 Login
+                    .form-group.mb-2
+                        input.form-control(type="email",id="loginemail", name="email", placeholder="Email")
+                    .form-group.mb-4
+                        input.form-control(type="password",id="loginpassword", name="password", placeholder="Password")
+                    .form-group.mb-2
+                        button.btn.btn-dark.btn-block(id="loginBtn") Submit
+    include partials/footer.pug

@@ -1,0 +1,45 @@
+include partials/header.pug
+body
+    .modal.fade(id="returnBookModal",data-bs-backdrop="static",data-bs-keyboard="false",tabindex="-1",aria-labelledby="staticBackdropLabel",aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5.modal-title(id="staticBackdropLabel") Return Book
+                    button.btn-close(type="button",data-bs-dismiss="modal",aria-label="Close")
+                .modal-body
+                    .alert
+                    input.form-control(type="hidden",id="returnbookId")
+                    .form-group.mb-4
+                        label(for="totalFine") Borrow date
+                        input.form-control(type="text",id="bDate",readonly="true")
+                    .form-group.mb-4
+                        label(for="totalFine") Return date
+                        input.form-control(type="text",id="rDate",readonly="true")
+                    .form-group.mb-4
+                        label(for="totalFine") Fine
+                        input.form-control(type="text",id="totalFine",readonly="true")
+                    .form-group.mb-4
+                        label(for="totalCharges") Total
+                        input.form-control(type="text",id="totalCharges",readonly="true")
+                .modal-footer
+                    button.btn.btn-secondary.closeModal(type="button",data-bs-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="button",id="returnBookBtn") Return & Pay
+    include partials/navbar.pug
+    .container 
+        .row.mt-4
+            .col-lg-12
+                .alert
+            .col-lg-12.text-left
+                span.title Books 
+            .col-lg-12.mt-4
+                table.table 
+                    thead 
+                        tr
+                            th ID
+                            th Name
+                            th Author
+                            th Publish date
+                            th Rent/Day
+                            th Action
+                    tbody(id='userBooks')
+    include partials/footer.pug

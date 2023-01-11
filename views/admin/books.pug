@@ -1,0 +1,64 @@
+include partials/header.pug
+body 
+    .modal.fade(id="staticBackdrop",data-bs-backdrop="static",data-bs-keyboard="false",tabindex="-1",aria-labelledby="staticBackdropLabel",aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5.modal-title(id="staticBackdropLabel") Add Book
+                    button.btn-close(type="button",data-bs-dismiss="modal",aria-label="Close")
+                .modal-body
+                    .alert
+                    .form-group.mb-4
+                        input.form-control(type="text",id="title", placeholder="Book Title")
+                    .form-group.mb-4
+                        input.form-control(type="text",id="stock", placeholder="Stock")
+                    .form-group.mb-4
+                        input.form-control(type="text",id="author", placeholder="Author")
+                    .form-group.mb-4
+                        input.form-control(type="date",id="publish", placeholder="Publish Date")
+                    .form-group.mb-4
+                        input.form-control(type="number",id="rent", placeholder="Rent per Day")
+                .modal-footer
+                    button.btn.btn-secondary.closeModal(type="button",data-bs-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="button",id="addBookBtn") Publish
+    .modal.fade(id="editBookModal",data-bs-backdrop="static",data-bs-keyboard="false",tabindex="-1",aria-labelledby="staticBackdropLabel",aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5.modal-title(id="staticBackdropLabel") Edit Book
+                    button.btn-close(type="button",data-bs-dismiss="modal",aria-label="Close")
+                .modal-body
+                    .alert
+                    .form-group.mb-4
+                        input.form-control(type="hidden",id="bookId")
+                        input.form-control(type="text",id="titleEdit", placeholder="Book Title")
+                    .form-group.mb-4
+                        input.form-control(type="text",id="stockEdit", placeholder="Stock")
+                    .form-group.mb-4
+                        input.form-control(type="text",id="authorEdit", placeholder="Author")
+                    .form-group.mb-4
+                        input.form-control(type="number",id="rentEdit", placeholder="Rent per Day")
+                .modal-footer
+                    button.btn.btn-secondary.closeModal(type="button",data-bs-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="button",id="updateBookBtn") Update
+    include partials/navbar.pug
+    .container 
+        .row.mt-4
+            .col-lg-12
+                .alert
+            .col-lg-12.text-left
+                span.title Books 
+                a.btn.btn-primary.fl-r(href="#0",data-bs-toggle="modal",data-bs-target="#staticBackdrop") Add Book
+            .col-lg-12.mt-4
+                table.table 
+                    thead 
+                        tr
+                            th ID
+                            th Name
+                            th Stock
+                            th Author
+                            th Publish date
+                            th Rent/Day
+                            th Action
+                    tbody(id='adminBooks')
+    include partials/footer.pug

@@ -1,0 +1,35 @@
+include partials/header.pug
+body
+    .modal.fade(id="editUser",data-bs-backdrop="static",data-bs-keyboard="false",tabindex="-1",aria-labelledby="staticBackdropLabel",aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5.modal-title(id="staticBackdropLabel") Edit User
+                    button.btn-close(type="button",data-bs-dismiss="modal",aria-label="Close")
+                .modal-body
+                    .alert
+                    .form-group.mb-4
+                        input.form-control(type="hidden",id="userId")
+                        input.form-control(type="text",id="usernameEdit", placeholder="Username")
+                    .form-group.mb-4
+                        input.form-control(type="password",id="passwordEdit", placeholder="Password")
+                .modal-footer
+                    button.btn.btn-secondary.closeModal(type="button",data-bs-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="button",id="updateUserBtn") Update
+    include partials/navbar.pug
+    .container 
+        .row.mt-4
+            .col-lg-12
+                .alert
+            .col-lg-12.text-left
+                span.title Users
+            .col-lg-12.mt-4
+                table.table 
+                    thead 
+                        tr
+                            th ID
+                            th Username
+                            th Email
+                            th Action
+                    tbody(id='adminUsers')
+    include partials/footer.pug
